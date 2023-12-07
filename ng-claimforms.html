@@ -20,13 +20,41 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="modal.css" />
-  </head>
+    <!-- AngularJS Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+      var app = angular.module("vmaxApp", []);
 
-  <body>
+      app.controller("vmaxController", function ($scope) {
+        $scope.menuToggle = function () {
+          // Your menuToggle function logic here
+        };
+
+        // Define your WhatsApp contacts
+        $scope.whatsappContacts = [
+          {
+            name: "Vmax Ceo",
+            url: "https://api.whatsapp.com/send?phone=254720329069",
+            icon: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
+          },
+          {
+            name: "Customer Service",
+            url: "https://api.whatsapp.com/send?phone=254705226770",
+            icon: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
+          },
+          {
+            name: "Sales Desk",
+            url: "https://api.whatsapp.com/send?phone=254705226770",
+            icon: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
+          },
+        ];
+      });
+    </script>
     <style>
       .services-boxes .services-inner {
         padding: 30px 20px;
@@ -35,7 +63,9 @@
         font-size: 17px;
       }
     </style>
+  </head>
 
+  <body ng-controller="vmaxController">
     <!-- watsapp toggle -->
 
     <!-- toggler -->
@@ -47,81 +77,57 @@
       </div>
     </div>
 
-    <!-- main screen -->
-    <div class="whatsapp-fluid">
-      <div class="whatsapp-container">
+  <!-- main screen -->
+  <div class="whatsapp-fluid">
+    <div class="whatsapp-container">
         <div class="group-a">
-          <img src="img/whatsapp-icon.png" alt="" />
+            <img src="img/whatsapp-icon.png" alt="">
         </div>
         <div class="group-b">
-          <h3>Start a Conversation</h3>
-          <p>Hi! Click one of our members below to chat on WhatsApp ;)</p>
+            <h3>Start a Conversation</h3>
+            <p>Hi! Click one of our members below to chat on WhatsApp ;)</p>
         </div>
-      </div>
-      <div class="whatsapp-inner-msg">
+    </div>
+    <div class="whatsapp-inner-msg">
         <div class="paragraph-watsapp">
-          <p>The team typically replies in a few minutes.</p>
+            <p>The team typically replies in a few minutes.</p>
         </div>
         <!-- all watsapp -->
         <div class="w-messenger">
-          <a
-            href="https://api.whatsapp.com/send?phone=254720329069"
-            target="_blank"
-          >
-            <div class="icon">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
-                alt=""
-              />
-            </div>
-            <div class="txt-watsapp">
-              <h3>Vmax Ceo</h3>
-            </div>
-            <div class="whatsapp-icon-right">
-              <img src="img/greenwats.png" alt="" />
-            </div>
-          </a>
+            <a href="https://api.whatsapp.com/send?phone=254720329069" target="_blank">
+                <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt=""></div>
+                <div class="txt-watsapp">
+                    <h3>Vmax Ceo</h3>
+                </div>
+                <div class="whatsapp-icon-right">
+                    <img src="img/greenwats.png" alt="">
+                </div>
+            </a>
         </div>
         <div class="w-messenger">
-          <a
-            href="https://api.whatsapp.com/send?phone=254705226770"
-            target="_blank"
-          >
-            <div class="icon">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
-                alt=""
-              />
-            </div>
-            <div class="txt-watsapp">
-              <h3>Customer Service</h3>
-            </div>
-            <div class="whatsapp-icon-right">
-              <img src="img/greenwats.png" alt="" />
-            </div>
-          </a>
+            <a href="https://api.whatsapp.com/send?phone=254705226770" target="_blank">
+                <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt=""></div>
+                <div class="txt-watsapp">
+                    <h3>Customer Service</h3>
+                </div>
+                <div class="whatsapp-icon-right">
+                    <img src="img/greenwats.png" alt="">
+                </div>
+            </a>
         </div>
         <div class="w-messenger">
-          <a
-            href="https://api.whatsapp.com/send?phone=254705226770"
-            target="_blank"
-          >
-            <div class="icon">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
-                alt=""
-              />
-            </div>
-            <div class="txt-watsapp">
-              <h3>Sales Desk</h3>
-            </div>
-            <div class="whatsapp-icon-right">
-              <img src="img/greenwats.png" alt="" />
-            </div>
-          </a>
+            <a href="https://api.whatsapp.com/send?phone=254705226770" target="_blank">
+                <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt=""></div>
+                <div class="txt-watsapp">
+                    <h3>Sales Desk</h3>
+                </div>
+                <div class="whatsapp-icon-right">
+                    <img src="img/greenwats.png" alt="">
+                </div>
+            </a>
         </div>
-      </div>
     </div>
+</div>
 
     <!-- Preloader Start -->
     <section>
@@ -426,7 +432,9 @@
       <div class="section-content">
         <div class="container">
           <div class="row">
-            <h3 class="claimforms-texts">Motor Insurance</h3>
+            <!-- start of Motor Insuarence -->
+            <div class="row">
+              <h3 class="claimforms-texts">Motor Insurance</h3>
             <div class="col-xl-4 col-lg-4 col-md-6">
               <div class="services-boxes">
                 <div class="services-inner">
@@ -477,6 +485,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-xl-4 col-lg-4 col-md-6">
               <div class="services-boxes">
                 <div class="services-inner">
@@ -577,6 +586,10 @@
                 </div>
               </div>
             </div>
+
+            </div> 
+            <!-- End of Motor Insuarence -->
+            
             <h3 class="claimforms-texts">Medical & Travel Insurance</h3>
             <div class="col-xl-3 col-lg-3 col-md-6">
               <div class="services-boxes">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="vmaxApp">
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="Insuren" />
@@ -20,13 +20,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="modal.css" />
-  </head>
-
-  <body>
+    <!-- AngularJS Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="./ng/ng-main.js"></script>
     <style>
       .services-boxes .services-inner {
         padding: 30px 20px;
@@ -35,7 +36,9 @@
         font-size: 17px;
       }
     </style>
+  </head>
 
+  <body ng-controller="vmaxController">
     <!-- watsapp toggle -->
 
     <!-- toggler -->
@@ -426,347 +429,41 @@
       <div class="section-content">
         <div class="container">
           <div class="row">
-            <h3 class="claimforms-texts">Motor Insurance</h3>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-delivery-truck-1"></i> -->
-                  <h4 class="services-title"><a>Motor Insurance</a></h4>
-
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_1"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_1 -->
-              <div id="modal_1" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Motor Cover</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/motor_claim_form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Windscreen</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/motor_claim_form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
+            <!-- start of Motor Insuarence -->
+            <!-- <div class="row" ng-include="'insurance.html'"> -->
+            <!-- </div> -->
+            <!-- class="col-xl-4 col-lg-4 col-md-6" -->
+            <div class="row" ng-repeat="category in insuranceCategories">
+              <div class="row">
+                <h3 class="claimforms-texts">{{category.title}}</h3>
+                <div
+                  ng-repeat="insurance in category.packages"
+                  class="col-xl-{{category.packages.length>=4?'3':'4'}} col-lg-{{category.packages.length>=4?'3':'4'}} col-md-6"
+                >
+                  <div class="services-boxes">
+                    <div class="services-inner">
+                      <div class="services-shape">
+                        <img ng-src="{{ insurance.image }}" alt="" />
+                      </div>
+                      <div class="services-count"></div>
+                      <h4 class="services-title">
+                        <a>{{ insurance.title }}</a>
+                      </h4>
+                      <div class="services-link">
+                        <a
+                          class="text-btn js-modal"
+                          data-modal="#{{insurance.modalId}}"
+                          >Download Forms</a
+                        >
+                      </div>
                     </div>
                   </div>
+                  <div ng-include="insurance.modalTemplate"></div>
                 </div>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-delivery-truck-1"></i> -->
-                  <h4 class="services-title"><a>Comprehensive Insurance</a></h4>
+            <!-- End of Motor Insuarence -->
 
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_2"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_2 -->
-              <div id="modal_2" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Motor Cover</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/motor_claim_form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Windscreen</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/motor_claim_form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-delivery-truck-1"></i> -->
-                  <h4 class="services-title"><a>Third Party Insurance</a></h4>
-
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_3"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_3 -->
-              <div id="modal_3" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Motor Cover</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/motor_claim_form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Windscreen</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/motor_claim_form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h3 class="claimforms-texts">Medical & Travel Insurance</h3>
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-networking"></i> -->
-                  <h4 class="services-title"><a>Health Insurance</a></h4>
-
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_4"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_4 -->
-              <div id="modal_4" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Outpatient</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/Outpatient%20Claim%20Form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Inpatient</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/Inpatient%20Preauthorisation%20Claim%20Form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                    <div class="border-same">
-                      <h1>Authorisation</h1>
-                      <hr />
-                      <p>Dental</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/Dental%20Preauthorisation%20Claim%20Form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>Optical</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/APA%20Optical%20Claim%20Form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-rocket"></i> -->
-                  <h4 class="services-title"><a>Travel insurance</a></h4>
-
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_5"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_5 -->
-              <div id="modal_5" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>Proposal Form</h1>
-                      <hr />
-                      <p>Travel</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/proposal/Travel%20Proposal%20Form.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-like-1"></i> -->
-                  <h4 class="services-title"><a>Life Insurance</a></h4>
-
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_6"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_6 -->
-              <div id="modal_6" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>proposal Form</h1>
-                      <hr />
-                      <p>Term Assuarance</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/proposal/INDIVIDUAL%20LIFE%20SAVINGS.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="services-boxes">
-                <div class="services-inner">
-                  <div class="services-shape">
-                    <img src="images/objects/6.png" alt="" />
-                  </div>
-                  <div class="services-count"></div>
-                  <!-- <i class="services-icon webexflaticon flaticon-like-1"></i> -->
-                  <h4 class="services-title"><a>Personal Accident</a></h4>
-
-                  <div class="services-link">
-                    <a class="text-btn js-modal" data-modal="#modal_7"
-                      >Download Forms</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- /#modal_7 -->
-              <div id="modal_7" class="modal-window">
-                <div class="modal-window__title">
-                  <div class="x-remove-modal">
-                    <p class="modal-close">&times;</p>
-                  </div>
-                  <div class="modal-window-p-download">
-                    <div class="border-same">
-                      <h1>Claim Form</h1>
-                      <hr />
-                      <p>PA</p>
-                      <hr />
-                      <a
-                        href="https://www.apainsurance.org/pdf/claim/GPA%20CLAIM%20FORM.pdf"
-                        target="_blank"
-                        >Download</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <h3 class="claimforms-texts">General Insurance</h3>
             <div class="col-xl-3 col-lg-3 col-md-6">
               <div class="services-boxes">
