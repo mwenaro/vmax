@@ -1,0 +1,22 @@
+name: PHP Deployment
+
+on:
+  push:
+    branches:
+      - dev33
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    
+    - name: Deploy PHP Application
+      run: |
+        rsync -avz --exclude='.git/' --exclude='vendor/' ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/path/to/deployment
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_HOST: ${{ secrets.SERVER_HOST }}
