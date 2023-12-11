@@ -1,0 +1,40 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Server
+      run: |
+        const FtpDeploy = require('ftp-deploy');
+
+        const config = {
+          host: ${{ secrets.FTP_SERVER }},
+          username: ${{ secrets.FTP_USERNAME }},
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }},
+          localRoot: './'
+        
+          // other configuration options...
+        };
+
+        const ftpDeploy = new FtpDeploy();
+
+        ftpDeploy.deploy(config, (err) => {
+          if (err) {
+            console.error(err);
+            process.exit(1);
+          } else {
+            console.log('Deployment finished successfully');
+          }
+        });
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
