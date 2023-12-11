@@ -1,6 +1,46 @@
 var app = angular.module("vmaxApp", []);
 
-app.controller("vmaxController", function ($scope) {
+// app.value("selectedCompany", "hello");
+app.service("companyService", function () {
+  var selected = null;
+
+  this.setSelectedCompany = function (company) {
+    selected = company;
+  };
+
+  this.getSelectedCompany = function () {
+    return selected;
+  };
+});
+
+const imageArray = [
+  "/img/kenindia.png",
+  "/img/ga-insurance.png",
+  "/img/mayfair-insurance.png",
+  "/img/intra.png",
+  "/img/geminia.png",
+  "/img/apa.png",
+];
+
+const companyData = imageArray.map((src) => {
+  // Extract image name from the src URL without the extension
+  const imageName = src
+    .split("/")
+    .pop()
+    .replace(/\.\w+$/, "")
+    .split("-")[0];
+
+  // Create an object with src and image_name properties
+  return {
+    src,
+    image_name: imageName,
+  };
+});
+
+app.controller("vmaxController", function ($scope, companyService) {
+  $scope.selectedCompany = companyService.getSelectedCompany();
+  $scope.getSelectedCompany = () => companyService.getSelectedCompany();
+  // console.log({selectedCompany1})
   $scope.menuToggle = function () {
     // Your menuToggle function logic here
   };
@@ -23,6 +63,15 @@ app.controller("vmaxController", function ($scope) {
       icon: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
     },
   ];
+  // $scope.companys  = [
+  //   "/img/kenindia.png",
+  //   "/img/ga-insurance.png",
+  //   "/img/mayfair-insurance.png",
+  //   "/img/intra.png",
+  //   "/img/geminia.png",
+  //   "/img/apa.png",
+  // ];
+  $scope.companys = companyData;
 
   // Insurance
   $scope.insuranceCategories = [
@@ -113,7 +162,7 @@ app.controller("vmaxController", function ($scope) {
           modalId: "general",
         },
         {
-          title: "Tourism & Political Violence Liability",
+          title: "Terrorism & Political Violence Liability",
           image: "images/objects/6.png",
           modalTemplate: "includes/general_modal.html",
           modalId: "general",
@@ -254,9 +303,41 @@ app.controller("vmaxController", function ($scope) {
     },
   ];
 
-  // $scope.openModal = function (insurance) {
-  //   // Implement your modal opening logic here
-  //   // You can use the insurance object to customize the modal content
-  //   alert("Opening modal for " + insurance.title);
-  // };
+  //  select
+
+  $scope.alerty = function () {
+    if (companyService.getSelectedCompany() == null) {
+      alert(
+        "No company Selected! Kindly select company by clicking the pictures above"
+      );
+    }
+  };
+});
+// app.controller("vmaxController", vmaxController);
+// components
+app.component("companyLogos", {
+  templateUrl: "../includes/company_logos_template.html", // Specify the path to your template file
+  controller: [
+    "$scope",
+    "companyService",
+    function ($scope, companyService) {
+      // $scope.selectedCompany = companyService.getSelectedCompany();
+      $scope.getSelectedCompany = () => companyService.getSelectedCompany();
+      console.log({ sel: $scope.selectedCompany });
+      // You can put any controller logic here if needed.
+      // console.log("Hello logosController");
+      $scope.btnClick = (val) => {
+        alert(val + "has been clicked!");
+      };
+
+      $scope.setSelectedCompany = (val) => {
+        companyService.setSelectedCompany(val.trim());
+        console.log({ sel: $scope.getSelectedCompany() });
+      };
+    },
+    // vmaxController,
+  ],
+  bindings: {
+    companys: "<", // Use one-way binding for the companies data
+  },
 });
