@@ -30,7 +30,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }},
           privateKey: ${{ secrets.SH_PRIVATE_KEY }},
           localRoot: './'
-          
+          remoteRoot: '/home/splendid/dev.splendidmedia.co.ke'
           // other configuration options...
         };
 

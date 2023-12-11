@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}  # Add the FTP port secret
           local-dir: ./  # Adjust this based on your project structure
-          # remote-dir: /public_html  # Replace with your remote directory
+          remote-dir: /dev.splendidmedia.co.ke  # Replace with your remote directory
           exclude: |
             **/.git*
             **/.git*/**
