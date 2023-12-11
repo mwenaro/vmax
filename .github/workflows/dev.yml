@@ -1,24 +1,28 @@
-on: 
-    push:
-      branches : [prod]
+on:
+  push:
+    branches: [dev]
+
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-                
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:  
-        server: ${{ secrets.FTP_SERVER }}  # Replace with your FTP server
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./  # Adjust this based on your project structure
-        #   remote-dir: /public_html  # Replace with your remote directory
-        exclude: |
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}  # Replace with your FTP server
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}  # Add the FTP port secret
+          local-dir: ./  # Adjust this based on your project structure
+          # remote-dir: /public_html  # Replace with your remote directory
+          exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
