@@ -78,12 +78,12 @@ app.controller("vmaxController", function ($scope, companyService) {
     {
       title: "Motor Insurance",
       packages: [
-        {
-          title: "Motor Insurance",
-          image: "images/objects/6.png",
-          modalTemplate: "includes/motor_modal.html",
-          modalId: "motor",
-        },
+        // {
+        //   title: "Motor Insurance",
+        //   image: "images/objects/6.png",
+        //   modalTemplate: "includes/motor_modal.html",
+        //   modalId: "motor",
+        // },
         {
           title: "Comprehensive Insurance",
           image: "images/objects/6.png",

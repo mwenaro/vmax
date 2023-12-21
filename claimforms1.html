@@ -76,7 +76,7 @@ align-items: center;
     }
     </style>
   </head>
- 
+
   <body ng-controller="vmaxController">
     <!-- watsapp toggle -->
 
@@ -166,29 +166,11 @@ align-items: center;
     </div>
 
     <!-- Preloader Start -->
-    <section>
-      <div id="preloader">
-        <div id="ctn-preloader" class="ctn-preloader">
-          <div class="animation-preloader">
-            <div class="spinner"></div>
-            <div class="txt-loading">
-              <span data-text-preloader="V" class="letters-loading"> V </span>
-
-              <span data-text-preloader="M" class="letters-loading"> M </span>
-
-              <span data-text-preloader="A" class="letters-loading"> A </span>
-
-              <span data-text-preloader="X" class="letters-loading"> X </span>
-            </div>
-          </div>
-          <div class="loader-section section-left"></div>
-          <div class="loader-section section-right"></div>
-        </div>
-      </div>
-    </section>
+   <div ng-include="'./ng/inc/pre-loader.html'"></div>
     <!-- Preloader End -->
+
     <!-- header Start -->
-    <page-header></page-header>
+    <div ng-include="'./ng/templates/header.component.html'"></div>
     <!-- header End -->
     <!-- Page Title Start -->
     <section class="page-title-section">
@@ -435,12 +417,12 @@ align-items: center;
     <div class="back-to-top">
       <i class="fa fa-angle-up"></i>
     </div>
- <!-- Integrated important scripts here -->
- <script src="js/jquery.v1.12.4.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="js/jquery-core-plugins.js"></script>
- <script src="js/main.js"></script>
- <script src="watsapptoggle.js"></script>
- <script src="modal.js"></script>
+    <!-- Integrated important scripts here -->
+    <script src="js/jquery.v1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-core-plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="watsapptoggle.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>
