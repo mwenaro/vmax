@@ -19,3 +19,33 @@ var documents = {
   geminia: {},
   apa: {},
 };
+
+// {
+//   title: "Medical & Travel Insurance",
+//   packages: [
+//     {
+//       title: "Health Insurance",
+//       image: "images/objects/6.png",
+//       modalTemplate: "includes/health_modal.html",
+//       modalId: "health",
+//     },
+//     {
+//       title: "Travel Insurance",
+//       image: "images/objects/6.png",
+//       modalTemplate: "includes/travel_modal.html",
+//       modalId: "travel",
+//     },
+//     {
+//       title: "Life Insurance",
+//       image: "images/objects/6.png",
+//       modalTemplate: "includes/life_modal.html",
+//       modalId: "life",
+//     },
+//     {
+//       title: "Personal Accident",
+//       image: "images/objects/6.png",
+//       modalTemplate: "includes/personal_modal.html",
+//       modalId: "personal",
+//     },
+//   ],
+// },

@@ -99,10 +99,10 @@ app.controller("vmaxController", function ($scope, companyService) {
       ],
     },
     {
-      title: "Medical & Travel Insurance",
+      title: "Other Common Insurances",
       packages: [
         {
-          title: "Health Insurance",
+          title: "Medical Insurance",
           image: "images/objects/6.png",
           modalTemplate: "includes/health_modal.html",
           modalId: "health",
@@ -114,13 +114,13 @@ app.controller("vmaxController", function ($scope, companyService) {
           modalId: "travel",
         },
         {
-          title: "Life Insurance",
+          title: "Domestic Package",
           image: "images/objects/6.png",
           modalTemplate: "includes/life_modal.html",
           modalId: "life",
         },
         {
-          title: "Personal Accident",
+          title: "Marine Insuranace",
           image: "images/objects/6.png",
           modalTemplate: "includes/personal_modal.html",
           modalId: "personal",
@@ -129,7 +129,7 @@ app.controller("vmaxController", function ($scope, companyService) {
     },
 
     {
-      title: "General Insurance",
+      title: "Business Insurance",
       packages: [
         {
           title: "Burglary Insurance",
@@ -137,18 +137,7 @@ app.controller("vmaxController", function ($scope, companyService) {
           modalTemplate: "includes/general_modal.html",
           modalId: "general",
         },
-        {
-          title: "Home Insurance",
-          image: "images/objects/6.png",
-          modalTemplate: "includes/general_modal.html",
-          modalId: "general",
-        },
-        {
-          title: "Bussiness Insurance",
-          image: "images/objects/6.png",
-          modalTemplate: "includes/general_modal.html",
-          modalId: "general",
-        },
+
         {
           title: "Rental Property Insurance",
           image: "images/objects/6.png",
@@ -185,12 +174,7 @@ app.controller("vmaxController", function ($scope, companyService) {
           modalTemplate: "includes/general_modal.html",
           modalId: "general",
         },
-        {
-          title: "Marine Insurance",
-          image: "images/objects/6.png",
-          modalTemplate: "includes/general_modal.html",
-          modalId: "general",
-        },
+        
         {
           title: "Machinery Breakdown",
           image: "images/objects/6.png",
@@ -251,12 +235,7 @@ app.controller("vmaxController", function ($scope, companyService) {
           modalTemplate: "includes/general_modal.html",
           modalId: "general",
         },
-        {
-          title: "Domestic Package",
-          image: "images/objects/6.png",
-          modalTemplate: "includes/general_modal.html",
-          modalId: "general",
-        },
+       
         {
           title: "Credit Insurance",
           image: "images/objects/6.png",
